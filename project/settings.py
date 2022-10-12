@@ -11,6 +11,15 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+# Importação da biblioteca para leitura e utilização das variaveis de ambiente
+from dotenv import load_dotenv
+# Importação da bibliteca que nos permite acesso a arquivos e funções do sistema
+import os
+
+#   Iniciamos o Settings carregando o load_dotenv busca o arquivo .env que criamos para as variaveis,
+#   vai percorer o arquivoe vai criar as variaveis no sistema conforme o que foi criado no arquivo .env
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,10 +29,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-fh_=trf(vfc_g6r^ufpg$ij7n(q4dr(l1s4u+vzw9o!j$o3oi&'
+# Criamos a SECRET_KEY dentro do arquivo .env e ultilizamos o caminho para carregar a variavel escondendo a chave secreta da aplicação django.
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# Coloca-se a vrigula com o valor False(nesse caso), se dentro do arquivo .env ele da o default False
+DEBUG = os.getenv('DEBUG', False)
 
 ALLOWED_HOSTS = []
 
