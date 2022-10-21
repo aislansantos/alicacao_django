@@ -4,6 +4,10 @@ from .models import Pessoa, Contato
 @admin.action(description='Ativar todas as Pessoas')
 def ativar_todos(modeladmin, request, queryset):
     queryset.update(ativa=True)
+    
+@admin.action(description='Desativar todas as Pessoas')
+def desativar_todos(modeladmin, request, queryset):
+    queryset.update(ativa=False)
 
 class pessoaAdmin(admin.ModelAdmin):
     list_display = [
@@ -19,7 +23,8 @@ class pessoaAdmin(admin.ModelAdmin):
         'nome_completo',
     ]
     actions = [
-        ativar_todos
+        ativar_todos,
+        desativar_todos,
     ]
         
     

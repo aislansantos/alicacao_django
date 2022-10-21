@@ -17,4 +17,4 @@ class Contato(models.Model):
     pessoa = models.ForeignKey(Pessoa, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
-        return self.name
+        return self.nome
