@@ -4,9 +4,7 @@
   <input type="text" name="nome" placeholder="Bucar po nome"/>
   <input type="submit" value="Buscar">
 </form>
-{% comment %}
-  <a href= {% url 'contato.novo' pk_pessoa %} ></a>
-{% endcomment %}
+  <a href="{% url 'contato.novo' pk_pessoa %}" >Novo</a>
 <table>
   <thead>
     <tr>
@@ -23,8 +21,8 @@
       <td>{{ contato.email }}</td>
       <td>{{ contato.telefone }}</td>
       <td>
-        {% comment "" %}<a href="{% url 'contato.editar' pk.pessoa contato.pk %}"></a>
-        <a href={% url 'contao.remover' pk.pessoa contato.pk %}></a>{% endcomment %}
+        <a href="{% url 'contato.editar' pk_pessoa contato.pk %}">Editar</a>
+        <a href="{% url 'contato.remover' pk_pessoa contato.pk %}">Remover</a>
       </td>
     </tr>
     {% endfor %}
